@@ -1,0 +1,10 @@
+.nav-link-custom {
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-link-custom:hover {
+  color: #f2c94c;
+  transform: scale(1.1);
+}

@@ -1,0 +1,13 @@
+body {
+  background: linear-gradient(135deg, #1f1f1f, #343a40);
+  min-height: 100vh;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
