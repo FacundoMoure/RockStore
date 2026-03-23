@@ -1,24 +1,36 @@
-import { useState } from "react"
+import { useState } from "react";
+import "../index.css";
 
-const Counter =(props) => {
+const Counter = (props) => {
+  const [num, setNum] = useState(0);
 
-    const [num, setNum] = useState(0)
+  const sumar = () => {
+    setNum(num + 1);
+  };
 
-    const sumar = () => {
-        setNum(num + 1)
+  const restar = () => {
+    if (num > 0) {
+      setNum(num - 1);
     }
+  };
 
-    const restar = () => {
-        setNum(num - 1)
-    }   
+  const agregarAlCarrito = () => {
+    console.log("Lecciones agregadas:", num);
+  };
 
-    return (
-        <div>
-            <button onClick={restar}>Restar</button>
-            Counter {num}
-            <button onClick={sumar}>Sumar</button>
-        </div>
-    )
-}
+  return (
+    <div>
+      <div className="d-flex justify-content-center align-items-center gap-2 mb-3">
+        <button onClick={restar}>-</button>
+        <span>Clases: {num}</span>
+        <button onClick={sumar}>+</button>
+      </div>
 
-export default Counter
+      <div className="text-center">
+        <button>Agregar al carrito</button>
+      </div>
+    </div>
+  );
+};
+
+export default Counter;

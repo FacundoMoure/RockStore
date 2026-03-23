@@ -6,7 +6,9 @@ function App() {
   return (
     <>
       <Navbar />
-      <ItemListContainer mensaje="Clases de Guitarra" />
+      <div className="py-5">
+        <ItemListContainer mensaje="Aprendé a tocar con tus canciones favoritas" />
+      </div>
     </>
   )
 }
