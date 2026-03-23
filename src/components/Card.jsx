@@ -1,4 +1,7 @@
 const Card = (props) => {
+  // Armamos la URL correcta para GitHub Pages y local
+  const imageUrl = `${import.meta.env.BASE_URL}${props.img}`;
+
   return (
     <div className="card mt-3 border-1 shadow-lg text-white">
       
@@ -7,7 +10,7 @@ const Card = (props) => {
       </div>
 
       <img
-        src={props.img}
+        src={imageUrl} // 👈 aquí
         className="card-img-top"
         alt={props.title}
         style={{ height: "200px", objectFit: "cover" }}
