@@ -1,8 +1,8 @@
 const Card = (props) => {
   return (
-    <div className="card mt-2 border-0 shadow-lg text-white">
+    <div className="card mt-3 border-1 shadow-lg text-white">
       
-      <div className="card-header border-0 bg-transparent fs-4 fw-bold text-center">
+      <div className="card-header border-1 bg-transparent fs-4 fw-bold text-center">
         {props.title}
       </div>
 

@@ -1,20 +1,29 @@
+/* =========================
+   BACKGROUND GLOBAL
+========================= */
+
 body {
   background-image: url("./assets/guitar-bg.jpg");
-  background-size: cover;       
-  background-position: center;  
-  background-repeat: no-repeat;  
-  background-attachment: fixed; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100vh;
 }
 
+/* Overlay oscuro + glow */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.178);
+  background: rgba(0, 0, 0, 0.18);
   box-shadow: inset 0 0 200px rgba(0, 212, 255, 0.2);
   z-index: -1;
 }
+
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar {
   position: sticky;
@@ -25,23 +34,53 @@ body::before {
   border-bottom: 1px solid rgba(0, 212, 255, 0.2);
 }
 
+/* =========================
+   TITULO
+========================= */
+
 .titulo-principal {
   color: #ffffff;
   font-size: 2.5rem;
   font-weight: bold;
+
   display: block;
   width: fit-content;
-  margin: 0 auto;
+  margin: 0 auto 32px auto; /* 👈 centra + margen abajo */
 
-  /* 👇 fondo sutil */
-  background: rgba(0, 0, 0, 0.4);
-  padding: 10px 20px;
-  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 12px 24px;
+  border-radius: 12px;
 
-  /* sombra actual */
-  text-shadow: 0 0 5px #181818;
-  animation: glow 2s ease-in-out infinite alternate;
+  text-shadow: 0 0 5px #d3d3d3;
 }
+
+/* =========================
+   CARDS
+========================= */
+
+.card-modern {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(0, 213, 255, 0.1);
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+
+  transition: all 0.3s ease;
+}
+
+/* Hover suave */
+.card-modern:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(0, 212, 255, 0.25);
+}
+
+/* =========================
+   CARD INTERNA (bootstrap override)
+========================= */
 
 .card {
   background: linear-gradient(
@@ -49,7 +88,7 @@ body::before {
     rgba(131, 152, 180, 0.85),
     rgba(59, 30, 99, 0.9)
   );
-  border: 1px solid rgba(0, 213, 255, 0.096);
+  border: 1px solid rgba(0, 213, 255, 0.1);
   backdrop-filter: blur(8px);
   border-radius: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -59,66 +98,86 @@ body::before {
   color: #e0e0e0;
 }
 
+/* Hover de card original */
 .card:hover {
-  transform: scale(1.05); 
+  transform: scale(1.05);
   box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.301),
-    0 0 20px rgba(251, 254, 255, 0.25);
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.2);
 }
 
-.card:hover .card-header {
-  color: #ffffff;
-  text-shadow: 
-    0 0 5px rgba(99, 99, 99, 0.8),
-    0 0 10px rgba(56, 56, 56, 0.6),
-    0 0 20px rgba(0, 0, 0, 0.4);
-}
-
-.card-header {
-  transition: color 0.3s ease, text-shadow 0.3s ease;
-}
+/* =========================
+   IMAGEN
+========================= */
 
 .card-img-top {
-  image-rendering: auto;
-  transition: all 0.4s ease;
-  object-fit: cover; 
+  object-fit: cover;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
+  transition: all 0.4s ease;
 }
 
+/* efecto hover imagen */
 .card:hover .card-img-top {
   filter: brightness(1.2) contrast(1.1);
 }
 
-
+/* =========================
+   FOOTER CARD
+========================= */
 
 .card-footer-custom {
   margin-top: 10px;
   padding: 12px;
-  border-top: 1px solid rgba(0, 213, 255, 0.15);
+
+  border-top: 1px solid rgba(0, 213, 255, 0.3);
+
   background: linear-gradient(
     145deg,
     rgba(0, 213, 255, 0.08),
     rgba(59, 30, 99, 0.2)
   );
+
   border-radius: 0 0 15px 15px;
 }
 
+/* =========================
+   BOTONES
+========================= */
+
 button {
-  padding: 5px 15px;
-  font-size: 10px;
-  cursor: pointer;
-  border: 1px solid #00eaff;
-  color: #000000;
-  transition: all 0.3s ease;
+  padding: 6px 14px;
+  font-size: 12px;
+
   border-radius: 6px;
+  border: 1px solid #00eaff;
+
+  background: transparent;
+  color: #fff;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
 }
 
 button:hover {
   background: #00eaff;
-  color: #0f2027;
-  box-shadow: 
-    0 0 10px rgba(0, 212, 255, 0.8),
-    0 0 20px rgba(0, 212, 255, 0.6);
+  color: #000;
+
+  box-shadow:
+    0 0 12px rgba(0, 234, 255, 0.7),
+    0 0 20px rgba(0, 234, 255, 0.5);
 }
 
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff;
+  }
+  to {
+    text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+  }
+}

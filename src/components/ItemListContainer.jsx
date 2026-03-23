@@ -1,18 +1,17 @@
-import { useState, useEffect } from "react"
-import ItemList from "./ItemList"
-import productos from "../data/productos.json"
-import '../index.css'
+import { useState, useEffect } from "react";
+import ItemList from "./ItemList";
+import productos from "../data/productos.json";
+import "../index.css";
 
 const pedirProductos = () => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(productos)
-    }, 1000)
-  })
-}
+      resolve(productos);
+    }, 1000);
+  });
+};
 
 function ItemListContainer(props) {
-
   const [items, setItems] = useState([])
 
   useEffect(() => {
@@ -22,8 +21,8 @@ function ItemListContainer(props) {
   }, [])
 
   return (
-    <div className="container mt-3 pb-5">
-      <h1 className="mb-4 text-center titulo-principal">
+    <div className="container pt-3 pb-2">
+      <h1 className="text-center titulo-principal">
         {props.mensaje}
       </h1>
 
@@ -36,4 +35,4 @@ function ItemListContainer(props) {
   )
 }
 
-export default ItemListContainer
+export default ItemListContainer;
