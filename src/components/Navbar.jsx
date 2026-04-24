@@ -25,7 +25,7 @@ function Navbar() {
           className="fw-bold text-warning fs-5 text-decoration-none ms-2"
           style={{ cursor: "pointer" }}
         >
-          RockStore - Clases de Guitarra
+          RockStore
         </span>
       </div>
 

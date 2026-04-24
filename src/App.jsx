@@ -43,7 +43,7 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <ItemListContainer mensaje="ROCKSTORE - GUITARRA ROCK" />
+                    <ItemListContainer mensaje="GUITARRA ROCK" />
                     <div className="text-center my-4">
                       <Link to="/clases" className="btn btn-primary">
                         Ver Clases Gratuitas! - Temazos Fáciles de Rock

@@ -6,7 +6,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBYctLCtHRt1AuFpJP6C5eM1nY3TzXkhWQ",
+  apiKey: "AIzaSyD1pKlgfR55g4OCKi7lH8a0cCeXk8QyZq4",
   authDomain: "clases-de-guitarra-5036c.firebaseapp.com",
   projectId: "clases-de-guitarra-5036c",
   storageBucket: "clases-de-guitarra-5036c.firebasestorage.app",
