@@ -1,10 +1,145 @@
+/* ========================= */
+/* NAVBAR GENERAL            */
+/* ========================= */
+
+.navbar {
+  background-color: #111 !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative; /* 🔥 necesario para el centrado absoluto */
+  width: 100%;
+  z-index: 1000;
+}
+
+/* secciones */
+.navbar-section {
+  display: flex;
+  align-items: center;
+}
+
+/* ========================= */
+/* CENTRO PERFECTO           */
+/* ========================= */
+
+.navbar-menu-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* 🔥 centrado real */
+
+  display: flex;
+  gap: 2rem;
+  font-size: 1.2rem;
+}
+
+/* ========================= */
+/* LINKS (HOVER PRO)         */
+/* ========================= */
+
 .nav-link-custom {
   color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s;
+}
+
+/* underline animado */
+.nav-link-custom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #ffc107;
+  transition: width 0.3s ease;
 }
 
 .nav-link-custom:hover {
-  color: #f2c94c;
-  transform: scale(1.1);
+  color: #ffc107;
+}
+
+.nav-link-custom:hover::after {
+  width: 100%;
+}
+
+/* ========================= */
+/* MOBILE MENU               */
+/* ========================= */
+
+.mobile-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 15px;
+  background-color: #111;
+  padding: 28px;
+  border-radius: 12px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 220px;
+  font-size: 1.2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  animation: fadeIn 0.25s ease;
+  align-items: flex-end;
+}
+
+/* links mobile */
+.mobile-menu li a {
+  color: white;
+  text-decoration: none;
+}
+
+.mobile-menu li a:hover {
+  color: #ffc107;
+}
+
+/* animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================= */
+/* DETALLES EXTRA            */
+/* ========================= */
+
+.navbar img {
+  margin-right: 8px;
+}
+
+/* evita que el navbar tape las secciones */
+#inicio {
+  scroll-margin-top: 80px;
+}
+
+#cursos {
+  scroll-margin-top: 100px;
+}
+
+#cancionero {
+  scroll-margin-top: 100px;
+}
+
+/* scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+.mobile-menu li span {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.mobile-menu li span:hover {
+  color: #ffc107;
 }

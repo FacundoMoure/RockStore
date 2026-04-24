@@ -1,34 +1,60 @@
 import { useState } from "react";
 import "../index.css";
 
-const Counter = (props) => {
-  const [num, setNum] = useState(0);
+const Counter = ({
+  cantidad,
+  setCantidad,
+  onAdd,
+  showAddButton = true,
+  showControls = true,
+}) => {
+  const [numInterno, setNumInterno] = useState(1);
+
+  const esControlado = cantidad !== undefined && setCantidad !== undefined;
+
+  const valor = esControlado ? cantidad : numInterno;
+  const setValor = esControlado ? setCantidad : setNumInterno;
 
   const sumar = () => {
-    setNum(num + 1);
+    setValor(valor + 1);
   };
 
   const restar = () => {
-    if (num > 0) {
-      setNum(num - 1);
+    if (valor > 1) {
+      setValor(valor - 1);
     }
   };
 
-  const agregarAlCarrito = () => {
-    console.log("Lecciones agregadas:", num);
+  const handleClick = () => {
+    if (onAdd) {
+      onAdd(valor);
+    }
   };
 
   return (
     <div>
-      <div className="d-flex justify-content-center align-items-center gap-2 mb-3">
-        <button onClick={restar}>-</button>
-        <span>Clases: {num}</span>
-        <button onClick={sumar}>+</button>
-      </div>
+      {showControls && (
+        <div className="d-flex justify-content-center align-items-center gap-2 mb-3">
+          <button onClick={restar} className="btn-counter">
+            -
+          </button>
+          <span className="contador-texto">Clases: {valor}</span>
+          <button onClick={sumar} className="btn-counter">
+            +
+          </button>
+        </div>
+      )}
 
-      <div className="text-center">
-        <button>Agregar al carrito</button>
-      </div>
+      {showAddButton && (
+        <div className="text-center">
+          <button
+            className="btn btn-warning mt-3 fw-bold"
+            onClick={handleClick}
+          >
+            Agregar al carrito
+          </button>
+        </div>
+      )}
     </div>
   );
 };

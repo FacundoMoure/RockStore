@@ -39,18 +39,16 @@ body::before {
 ========================= */
 
 .titulo-principal {
+  font-family: Inconsolata, monospace;
   color: #ffffff;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
-
   display: block;
   width: fit-content;
   margin: 0 auto 32px auto; /* 👈 centra + margen abajo */
-
   background: rgba(0, 0, 0, 0.65);
   padding: 12px 24px;
   border-radius: 12px;
-
   text-shadow: 0 0 5px #d3d3d3;
 }
 
@@ -72,10 +70,13 @@ body::before {
 
 /* Hover suave */
 .card-modern:hover {
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-8px) scale(1.03);
+
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.5),
-    0 0 15px rgba(0, 212, 255, 0.25);
+    0 20px 40px rgba(0, 0, 0, 0.6),
+    0 0 25px rgba(0, 212, 255, 0.4);
+
+  border: 1px solid rgba(0, 234, 255, 0.4);
 }
 
 /* =========================
@@ -83,6 +84,9 @@ body::before {
 ========================= */
 
 .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   background: linear-gradient(
     145deg,
     rgba(131, 152, 180, 0.85),
@@ -91,19 +95,21 @@ body::before {
   border: 1px solid rgba(0, 213, 255, 0.1);
   backdrop-filter: blur(8px);
   border-radius: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card-body {
   color: #e0e0e0;
+  flex-grow: 1;
 }
 
-/* Hover de card original */
-.card:hover {
-  transform: scale(1.05);
-  box-shadow:
-    0 10px 25px rgba(0, 0, 0, 0.3),
-    0 0 20px rgba(255, 255, 255, 0.2);
+.card-body p {
+  display: -webkit-box;
+  /* máximo 3 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* =========================
@@ -111,15 +117,36 @@ body::before {
 ========================= */
 
 .card-img-top {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* 🔥 clave */
   object-fit: cover;
+  display: block; /* 🔥 importante */
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
+
   transition: all 0.4s ease;
 }
 
 /* efecto hover imagen */
 .card:hover .card-img-top {
   filter: brightness(1.2) contrast(1.1);
+}
+
+.img-detalle {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+
+  border-radius: 16px;
+  border: 2px solid rgba(0, 234, 255, 0.5);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 234, 255, 0.3);
+}
+
+.img-detalle:hover {
+  transform: scale(1.02);
 }
 
 /* =========================
@@ -141,15 +168,49 @@ body::before {
   border-radius: 0 0 15px 15px;
 }
 
+.detalle-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 40px 15px;
+}
+
+.detalle-card {
+  background: rgba(20, 20, 20, 0.6); /* semi transparente */
+  backdrop-filter: blur(12px); /* 🔥 efecto vidrio */
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  max-width: 1000px;
+}
+
+.detalle-card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* =========================
    BOTONES
 ========================= */
 
 button {
-  padding: 6px 14px;
-  font-size: 12px;
+  padding: 10px 18px;
+  font-size: 14px;
 
-  border-radius: 6px;
+  border-radius: 8px;
   border: 1px solid #00eaff;
 
   background: transparent;
@@ -165,19 +226,161 @@ button:hover {
   color: #000;
 
   box-shadow:
-    0 0 12px rgba(0, 234, 255, 0.7),
-    0 0 20px rgba(0, 234, 255, 0.5);
+    0 0 15px rgba(0, 234, 255, 0.8),
+    0 0 30px rgba(0, 234, 255, 0.6);
 }
 
-/* =========================
-   ANIMACIONES
-========================= */
+.loading-container {
+  min-height: 60vh; /* o 100vh si querés full pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-@keyframes glow {
-  from {
-    text-shadow: 0 0 5px #fff;
-  }
+.loading-text {
+  font-size: 2rem; /* tamaño grande */
+  font-weight: bold;
+  color: white;
+
+  /* borde negro tipo “contorno” */
+  -webkit-text-stroke: 0.5px black;
+
+  /* fallback para navegadores que no soportan stroke */
+  text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+.cancionero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  text-align: center;
+
+  /* 🔥 glassmorphism */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 45px;
+  padding: 40px 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 1000px;
+
+  /* animación inicial */
+  opacity: 0;
+  transform: translateY(40px);
+  animation: aparecer 0.8s ease forwards;
+}
+
+.cancionero h2 {
+  color: #ffffff;
+  font-size: 3rem;
+  font-family: Inconsolata, monospace;
+  font-weight: bold;
+  text-shadow: 0 0 5px #d3d3d3;
+  margin-bottom: 25px;
+}
+
+.cancionero-actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* imagen */
+.cancionero-img {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 20px;
+  transition: all 0.4s ease; /* 🔥 animación suave */
+}
+
+/* 🔥 hover fachero */
+.cancionero-img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 10px 30px rgba(0, 234, 255, 0.3);
+}
+
+/* 🔥 animación entrada */
+@keyframes aparecer {
   to {
-    text-shadow: 0 0 10px #00eaff, 0 0 20px #00eaff;
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.card-clase {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover */
+.card-clase:hover {
+  transform: translateY(-10px) scale(1.03);
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 📱 CELULARES */
+@media (max-width: 576px) {
+  .card-modern {
+    padding: 10px;
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .titulo-principal {
+    font-size: 1.6rem;
+    padding: 10px 16px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+/* 📲 TABLETS */
+@media (max-width: 768px) {
+  .card-img-top {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+}
+
+.img-detalle {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 1000px) and (min-width: 700px) {
+  .img-detalle {
+    max-height: 300px;
+  }
+}
+
+/* Layout sticky footer */
+
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
 }

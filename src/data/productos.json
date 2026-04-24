@@ -1,37 +1,42 @@
 [
   {
     "id": 1,
-    "title": "Guitarra Inicial",
-    "description": "Aprendé tus primeros acordes, ritmos y canciones.",
-    "price": 50,
+    "title": "Clases Particulares",
+    "description": "Personalizadas, adaptadas a tu nivel y estilo.",
+    "price": 60000, 
+    "category": "clases",
     "img": "images/card.jpg"
   },
   {
     "id": 2,
-    "title": "Guitarra Intermedia",
-    "description": "Mejorá tu técnica, arpegios y aprendé escalas.",
-    "price": 80,
+    "title": "Curso de Técnica",
+    "description": "Mejorá tu técnica de púa, ligados y arpegios.",
+    "price": 20000,
+    "category": "tecnica",
     "img": "images/card2.jpg"
   },
   {
     "id": 3,
-    "title": "Guitarra Avanzada",
-    "description": "Dominá solos, escalas y técnicas avanzadas.",
-    "price": 120,
+    "title": "Cancionero",
+    "description": "Aprendé los clásicos de rock nacional e internacional.",
+    "price": 15000,
+    "category": "canciones",
     "img": "images/card3.jpg"
   },
   {
     "id": 4,
-    "title": "Guitarra Clásica",
-    "description": "Aprendé a leer partituras y tocar música clásica.",
-    "price": 90,
+    "title": "Solos de Rock",
+    "description": "Clásicos, desde Led Zeppelin hasta Guns N' Roses.",
+    "price": 15000,
+    "category": "solos",
     "img": "images/card4.jpg"
   },
   {
     "id": 5,
     "title": "Improvisación",
     "description": "Desarrollá tu creatividad usando escalas y arpegios.",
-    "price": 100,
+    "price": 60000,
+    "category": "improvisacion",
     "img": "images/card5.jpg"
   }
 ]

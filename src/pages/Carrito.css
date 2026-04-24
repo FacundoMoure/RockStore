@@ -1,0 +1,82 @@
+/* CONTENEDOR CENTRADO */
+.carrito-vacio-container {
+  min-height: 70vh; /* ocupa casi toda la pantalla */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+  padding: 10px;
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000,
+    0 0 10px rgba(0, 234, 255, 0.4);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(0, 234, 255, 0.3);
+  border-radius: 12px;
+
+  text-shadow: 0 0 8px rgba(0, 234, 255, 0.4);
+}
+
+.cart-total {
+  margin-top: 20px;
+  padding: 12px 20px;
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 234, 255, 0.3);
+  border-radius: 12px;
+  text-shadow: 0 0 8px rgba(0, 234, 255, 0.4);
+}
+
+/* CAJA GLASS */
+.carrito-vacio-box {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 15px 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  color: white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.carrito-vacio-box {
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.titulo-container {
+  display: inline-block;
+  padding: 16px 32px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.1); /* transparencia */
+  backdrop-filter: blur(10px); /* blur posta */
+  -webkit-backdrop-filter: blur(10px); /* safari */
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
