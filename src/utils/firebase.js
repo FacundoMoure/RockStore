@@ -1,12 +1,10 @@
-// Import the functions you need from the SDKs you need
+// Import the functions you need from the SDKs
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Firebase configuration usando variables de entorno
 const firebaseConfig = {
-  apiKey: "AIzaSyD1pKlgfR55g4OCKi7lH8a0cCeXk8QyZq4",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: "clases-de-guitarra-5036c.firebaseapp.com",
   projectId: "clases-de-guitarra-5036c",
   storageBucket: "clases-de-guitarra-5036c.firebasestorage.app",
@@ -17,4 +15,5 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
+// Export Firestore
 export const firestore = getFirestore(app);
