@@ -38,5 +38,13 @@
     "price": 60000,
     "category": "improvisacion",
     "img": "images/card5.jpg"
+  },
+    {
+    "id": 6,
+    "title": "Armonía",
+    "description": "Aprendé y entendé como se componen las canciones.",
+    "price": 10000,
+    "category": "armonía",
+    "img": "images/card6.jpg"
   }
 ]
