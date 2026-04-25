@@ -1,9 +1,12 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
 
   const addToCart = (producto, cantidad) => {
     setCart((prev) => {
@@ -17,7 +20,14 @@ export const CartProvider = ({ children }) => {
         );
       }
 
-      return [...prev, { ...producto, cantidad }];
+      return [
+        ...prev,
+        {
+          ...producto,
+          price: Number(producto.price) || 0,
+          cantidad,
+        },
+      ];
     });
   };
 
@@ -29,8 +39,12 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   const total = cart.reduce(
-    (acc, item) => acc + item.precio * item.cantidad,
+    (acc, item) => acc + (Number(item.price) || 0) * item.cantidad,
     0,
   );
 

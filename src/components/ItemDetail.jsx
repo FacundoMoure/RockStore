@@ -1,12 +1,11 @@
 import Counter from "./Counter";
 import { useState, useContext } from "react";
-import { formatPrice } from "./FormatPrice";
+import { formatPrice } from "../components/FormatPrice";
 import { CartContext } from "../context/CartContext";
 import toast from "react-hot-toast";
 
 const ItemDetail = ({ producto }) => {
   const [cantidad, setCantidad] = useState(1);
-
   const { addToCart } = useContext(CartContext);
 
   if (!producto) {
@@ -15,9 +14,17 @@ const ItemDetail = ({ producto }) => {
 
   const imageUrl = `${import.meta.env.BASE_URL}${producto.img}`;
 
+  // 🔥 FUNCIÓN CORREGIDA
   const handleAgregar = () => {
-    addToCart(producto, cantidad);
-    console.log("Agregaste:", cantidad, producto.title);
+    const item = {
+      id: producto.id,
+      nombre: producto.title, // 🔥 unificado
+      price: Number(producto.price), // 🔥 siempre número
+    };
+
+    addToCart(item, cantidad);
+
+    console.log("Agregaste:", cantidad, item.nombre);
     toast.success("Agregado al carrito 🛒");
   };
 
@@ -40,6 +47,7 @@ const ItemDetail = ({ producto }) => {
 
             <p className="mt-3">{producto.description}</p>
 
+            {/* 🔥 PRECIO FORMATEADO */}
             <h4 className="text-warning">{formatPrice(producto.price)}</h4>
 
             <div className="mt-4">

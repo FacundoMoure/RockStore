@@ -25,7 +25,7 @@ const ItemList = ({ productos }) => {
                     {
                       id: prod.id,
                       nombre: prod.title,
-                      precio: prod.price,
+                      price: Number(prod.price), // 🔥 clave
                     },
                     cantidad,
                   );

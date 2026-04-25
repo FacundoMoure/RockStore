@@ -14,7 +14,7 @@ const Cancionero = () => {
     const producto = {
       id: "cancionero-rock",
       nombre: "Cancionero de Rock",
-      precio: 10000, // 🔥 oferta coherente
+      price: 10000, // 🔥 FIX
     };
 
     addToCart(producto, cantidad);
@@ -41,7 +41,10 @@ const Cancionero = () => {
         />
 
         {/* 🔥 BOTÓN VER CARRITO */}
-        <button className="btn-ver-carrito" onClick={() => navigate("/cart")}>
+        <button
+          className="btn-ver-carrito"
+          onClick={() => navigate("/carrito")}
+        >
           Ver carrito
         </button>
       </div>

@@ -56,7 +56,7 @@ const Carrito = () => {
             <p>Cantidad: {item.cantidad}</p>
 
             {/* 🔥 PRECIO FORMATEADO */}
-            <p>Precio: {formatPrice(item.precio)}</p>
+            <p>Precio: {formatPrice(item.price)}</p>
           </div>
 
           <button
