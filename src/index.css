@@ -1,14 +1,13 @@
-/* =========================
-   BACKGROUND GLOBAL
-========================= */
+html,
+body,
+#root {
+  height: vh;
+  min-height: 100vh;
+}
 
 body {
-  background-image: url("./assets/guitar-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  min-height: 100vh;
+  background: linear-gradient(180deg, #121212 0%, #0a0a0a 100%);
+  color: #eaeaea;
 }
 
 /* Overlay oscuro + glow */
@@ -329,6 +328,52 @@ button:hover {
   transform: translateY(-10px) scale(1.03);
   background: rgba(0, 0, 0, 0.8);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.oferta-texto {
+  color: #1ed760;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+
+  text-shadow: 0 0 10px rgba(0, 234, 255, 0.5);
+}
+
+/* Botón ver carrito estilo igual */
+.btn-ver-carrito {
+  margin-top: 12px;
+  padding: 10px 18px;
+  font-size: 14px;
+
+  border-radius: 8px;
+  border: 1px solid #00eaff;
+
+  background: transparent;
+  color: #fff;
+
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-ver-carrito:hover {
+  background: #00eaff;
+  color: #000;
+
+  box-shadow:
+    0 0 15px rgba(0, 234, 255, 0.8),
+    0 0 30px rgba(0, 234, 255, 0.6);
+}
+
+.cancionero-actions {
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column; /* 🔥 uno abajo del otro */
+  align-items: center; /* 🔥 centrado horizontal */
+  justify-content: center;
+
+  gap: 12px; /* espacio entre elementos */
 }
 
 /* 📱 CELULARES */

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import { formatPrice } from "../components/FormatPrice";
 import "./Carrito.css";
 
 const Carrito = () => {
@@ -10,6 +11,7 @@ const Carrito = () => {
     removeItem,
     clearCart,
   } = useContext(CartContext) || {};
+
   const navigate = useNavigate();
 
   if (cart.length === 0) {
@@ -32,9 +34,12 @@ const Carrito = () => {
   const mensaje = encodeURIComponent(
     `Hola! Quiero estas clases:\n` +
       cart
-        .map((item) => `• ${item.nombre} x${item.cantidad} - $${item.precio}`)
+        .map(
+          (item) =>
+            `• ${item.nombre} x${item.cantidad} - ${formatPrice(item.precio)}`,
+        )
         .join("\n") +
-      `\nTotal: $${total}`,
+      `\nTotal: ${formatPrice(total)}`,
   );
 
   return (
@@ -49,7 +54,9 @@ const Carrito = () => {
           <div>
             <h5>{item.nombre}</h5>
             <p>Cantidad: {item.cantidad}</p>
-            <p>Precio: ${item.precio}</p>
+
+            {/* 🔥 PRECIO FORMATEADO */}
+            <p>Precio: {formatPrice(item.precio)}</p>
           </div>
 
           <button
@@ -61,7 +68,8 @@ const Carrito = () => {
         </div>
       ))}
 
-      <h3 className="cart-total">Total: ${total}</h3>
+      {/* 🔥 TOTAL FORMATEADO */}
+      <h3 className="cart-total">Total: {formatPrice(total)}</h3>
 
       <div className="d-flex gap-3 mt-3 flex-wrap">
         <button className="btn btn-light" onClick={clearCart}>
