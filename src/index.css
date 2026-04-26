@@ -563,3 +563,102 @@ button:hover {
   height: 42px;
   padding: 0;
 }
+
+/* 🧠 GRID RESPONSIVE PRO */
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+/* 📱 MOBILE: 2 columnas */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .card-modern {
+    padding: 0.9rem !important;
+    border-radius: 14px;
+  }
+
+  .product-desc {
+    font-size: 0.78rem;
+    line-height: 1.2;
+  }
+
+  .product-price {
+    font-size: 1rem;
+  }
+
+  .card-footer-custom {
+    gap: 0.4rem;
+  }
+
+  .btn-wrapper button {
+    font-size: 0.85rem;
+    min-height: 38px;
+  }
+}
+
+/* 💻 TABLET */
+@media (min-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 💻 DESKTOP */
+@media (min-width: 992px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* 🧊 CARD MODERNA */
+.product-card-wrapper {
+  height: 100%;
+}
+
+/* texto más limpio mobile */
+.product-desc {
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+/* 💰 precio destacado */
+.product-price {
+  font-size: 1.1rem;
+  color: #00eaff;
+}
+
+/* 🔘 FOOTER */
+.card-footer-custom {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* botones full mobile */
+.btn-wrapper button {
+  width: 100%;
+  border-radius: 10px;
+  min-height: 42px;
+}
+
+/* 🧠 hover pro desktop */
+.card-modern {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: 0.2s ease;
+}
+
+.card-modern:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 234, 255, 0.15);
+}

@@ -11,18 +11,18 @@ const ItemList = ({ productos }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="row g-5">
+    <div className="products-grid">
       {productos.map((prod) => (
-        <div key={prod.id} className="col-12 col-md-6 col-lg-4">
+        <div key={prod.id} className="product-card-wrapper">
           <div className="card-modern text-white h-100 p-3">
             <Card id={prod.id} title={prod.title} img={prod.img}>
-              <p>{prod.description}</p>
-              <p className="fw-bold">{formatPrice(prod.price)}</p>
+              <p className="product-desc">{prod.description}</p>
+              <p className="product-price fw-bold">{formatPrice(prod.price)}</p>
             </Card>
 
             {/* 🔥 FOOTER PRO */}
             <div className="card-footer-custom mt-3">
-              {/* 🔹 BOTÓN AGREGAR */}
+              {/* ➕ AGREGAR */}
               <div className="btn-wrapper">
                 <Counter
                   onAdd={(cantidad) => {
@@ -41,10 +41,10 @@ const ItemList = ({ productos }) => {
                 />
               </div>
 
-              {/* 🔹 BOTÓN VER CARRITO */}
+              {/* 🛒 VER CARRITO */}
               <div className="btn-wrapper">
                 <button
-                  className="btn btn-warning fw-bold"
+                  className="btn btn-warning fw-bold w-100"
                   onClick={() => navigate("/carrito")}
                 >
                   🛒 Ver carrito

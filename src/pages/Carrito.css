@@ -120,6 +120,7 @@ body {
 .full {
   width: 100%;
   margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .btn-primary {
@@ -204,4 +205,43 @@ body {
   100% {
     transform: scale(1) translateY(0);
   }
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+  .cart-wrapper {
+    padding: 1rem;
+  }
+
+  .cart-grid {
+    grid-template-columns: 1fr; /* 🔥 una sola columna */
+  }
+
+  .cart-summary {
+    position: static; /* 🔥 evita que rompa el layout */
+    top: auto;
+    margin-top: 1rem;
+  }
+
+  .cart-card {
+    flex-direction: column; /* 🔥 apila contenido */
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .cart-card h5 {
+    font-size: 1.2rem;
+  }
+
+  .cart-card p {
+    font-size: 0.95rem;
+  }
+
+  .cart-card strong {
+    font-size: 1rem;
+  }
+}
+
+body {
+  overflow-x: hidden;
 }
