@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 import Counter from "./Counter";
 import { formatPrice } from "./FormatPrice";
@@ -7,6 +8,7 @@ import toast from "react-hot-toast";
 
 const ItemList = ({ productos }) => {
   const { addToCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   return (
     <div className="row g-5">
@@ -18,22 +20,36 @@ const ItemList = ({ productos }) => {
               <p className="fw-bold">{formatPrice(prod.price)}</p>
             </Card>
 
+            {/* 🔥 FOOTER PRO */}
             <div className="card-footer-custom mt-3">
-              <Counter
-                onAdd={(cantidad) => {
-                  addToCart(
-                    {
-                      id: prod.id,
-                      nombre: prod.title,
-                      price: Number(prod.price), // 🔥 clave
-                    },
-                    cantidad,
-                  );
+              {/* 🔹 BOTÓN AGREGAR */}
+              <div className="btn-wrapper">
+                <Counter
+                  onAdd={(cantidad) => {
+                    addToCart(
+                      {
+                        id: prod.id,
+                        nombre: prod.title,
+                        price: Number(prod.price),
+                      },
+                      cantidad,
+                    );
 
-                  toast.success("Agregado al carrito 🛒");
-                }}
-                showControls={false}
-              />
+                    toast.success("Agregado al carrito 🛒");
+                  }}
+                  showControls={false}
+                />
+              </div>
+
+              {/* 🔹 BOTÓN VER CARRITO */}
+              <div className="btn-wrapper">
+                <button
+                  className="btn btn-warning fw-bold"
+                  onClick={() => navigate("/carrito")}
+                >
+                  🛒 Ver carrito
+                </button>
+              </div>
             </div>
           </div>
         </div>
